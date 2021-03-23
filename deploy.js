@@ -2,7 +2,7 @@
 let sqlite = require('sqlite3')
 let fs = require('fs')
 
-fs.writeFileSync(__dirname + '/db.sqlite3', null)
+fs.writeFileSync(__dirname + '/db.sqlite3', '')
 console.log('Файл базы данных успешно создан')
 db = sqlite.Database(__dirname + '/db.sqlite3')
 console.log('База данных подключена')
