@@ -4,7 +4,7 @@ let fs = require('fs')
 
 fs.writeFileSync(__dirname + '/db.sqlite3', '')
 console.log('Файл базы данных успешно создан')
-db = sqlite.Database(__dirname + '/db.sqlite3')
+db = new sqlite.Database(__dirname + '/db.sqlite3')
 console.log('База данных подключена')
 db.run('create table people (id integer primary key, login varchar(30), pass varchar(32));', err => {
     if (err) {
