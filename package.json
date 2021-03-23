@@ -1,0 +1,33 @@
+{
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "sqlite3": "^5.0.2"
+  },
+  "name": "express_user_management",
+  "version": "0.0.1",
+  "description": "Example of working with users and sessions in node js using express.",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coder8080/express_user_management.git"
+  },
+  "keywords": [
+    "express",
+    "express-session",
+    "sqlite",
+    "sqlite3"
+  ],
+  "author": "coder8080",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coder8080/express_user_management/issues"
+  },
+  "homepage": "https://github.com/coder8080/express_user_management#readme"
+}
