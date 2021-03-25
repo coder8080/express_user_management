@@ -1,9 +1,9 @@
-<%- include('blocks/head.ejs', {header: 'log in eum system'}) %>
+<%- include('blocks/head.ejs', {header: 'registration in eum system'}) %>
 <body>
 <div class="container text-center">
-    <h1>Log in EUM system</h1>
+    <h1>Create new account in EUM system</h1>
     <hr>
-    <form action="/login" method="post" class="mt-2">
+    <form action="/reg" method="post" class="mt-2">
         <div class="form-group">
             <label for="login">Login</label>
             <input type="text" class="form-control" id="login" name="login" autocomplete="off" required>
@@ -12,8 +12,8 @@
             <label for="password">Password</label>
             <input type="password" class="form-control" name='password' id="password" required>
         </div>
-        <button type="submit" class="btn btn-primary">Login</button>
-        <h6 class="mt-2"><a href="/reg">Create new account</a></h6>
+        <button type="submit" class="btn btn-primary">Register</button>
+        <h6 class="mt-2"><a href="/reg">Already have an account? Login</a></h6>
     </form>
 </div>
 </body>

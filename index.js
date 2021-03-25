@@ -40,15 +40,18 @@ app.post('/login', urlEncodedParser, ((req, res) => {
     operations.log(req, res)
 }))
 
-//Пока не работает. Пользователя надо создавать вручную через консоль базы данных
-/*app.get('/reg', ((req, res) => {
+app.get('/reg', ((req, res) => {
     if (req.session.logged) {
         res.redirect('/')
     }
     else {
         res.render('reg')
     }
-}))*/
+}))
+
+app.post('/reg', urlEncodedParser, ((req, res) => {
+    operations.reg(req, res)
+}))
 
 //Запускаем сервер
 app.listen(3000, () => {

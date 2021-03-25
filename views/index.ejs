@@ -1,8 +1,11 @@
-<%- include('blocks/head.ejs') %>
+<%- include('blocks/head.ejs', {header: 'eum'}) %>
 <body>
-<div class="container">
-    <b>your login:</b> <%= obj.login %>
-<!--    <b>your pass:</b> <%= obj.pass %>-->
+<div class="container text-center">
+    <h1>EUM</h1>
+    <h2>express user management</h2>
+    <h5>express user management - simple project written by coder8080. It just shows how can you work with users and
+        session in node.js using express framework.</h5>
+    <h4 class="mt-4"><b>your login:</b> <%= obj.login %></h4>
 </div>
 </body>
 </html>
