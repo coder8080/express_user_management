@@ -53,6 +53,12 @@ app.post('/reg', urlEncodedParser, ((req, res) => {
     operations.reg(req, res)
 }))
 
+app.get('/logout', (req, res) => {
+    req.session.logged = false
+    req.session.login = ''
+    res.render('msg', {msg: 'You have logged out successfully'})
+})
+
 //Запускаем сервер
 app.listen(3000, () => {
     console.log('server started successfully')
