@@ -6,7 +6,11 @@ let sqlite = require('sqlite3')
 //Создаём объект базы данных
 let db = new sqlite.Database('db.sqlite3')
 
-//Сразу выводим функцию "логирования" в модуль
+/**
+ * Авторизация пользователя на сайте
+ * @param req {object} - объект запроса express
+ * @param res {object} - объект ответа express
+ * */
 module.exports.log = (req, res) => {
     //Отправляем запрос базе данных
     db.get(`select * from people where login = '${req.body.login}';`, (err, data) => {
@@ -31,9 +35,16 @@ module.exports.log = (req, res) => {
     })
 }
 
+/**
+ * Регистрация пользователя на сайте
+ * @param req {object} - объект запроса express
+ * @param res {object} - объект ответа express
+ * */
 module.exports.reg = (req, res) => {
+    //Получаем данные из запроса
     let login = req.body.login
     let pass = req.body.password
+    //Проверяем, существует ли аккаунт с таким логином
     db.get(`select id from people where login = '${login}';`, (err, data) => {
         if (err) {
             throw err
@@ -41,12 +52,15 @@ module.exports.reg = (req, res) => {
         if (data) {
             res.render('msg', {msg: 'Account with this login already exits'})
         } else {
+            //Создаём новый аккаунт
             db.run(`insert into people (login, pass) values ('${login}', '${pass}');`, (err) => {
                 if (err) {
                     throw err
                 }
+                //"Логируем" пользователя
                 req.session.logged = true
                 req.session.login = login
+                //Перенаправляем пользователя на главную страницу
                 res.redirect('/')
             })
         }

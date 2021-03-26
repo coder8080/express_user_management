@@ -51,6 +51,7 @@ app.get('/reg', ((req, res) => {
 
 app.post('/reg', urlEncodedParser, ((req, res) => {
     operations.reg(req, res)
+    operations.log(req, res)
 }))
 
 app.get('/logout', (req, res) => {
