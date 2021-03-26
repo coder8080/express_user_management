@@ -8,8 +8,8 @@ let db = new sqlite.Database('db.sqlite3')
 
 /**
  * Авторизация пользователя на сайте
- * @param req {object} - объект запроса express
- * @param res {object} - объект ответа express
+ * @param {object} req - объект запроса express
+ * @param {object} res - объект ответа express
  * */
 module.exports.log = (req, res) => {
     //Отправляем запрос базе данных
@@ -21,7 +21,7 @@ module.exports.log = (req, res) => {
         //Проверяем, вернула ли база данных какую-либо информацию
         if (data) {
             //Проверяем пароль на совпадение
-            /*Над шифрованием пароля ещё работаю*/
+            //Над шифрованием пароля ещё работаю
             if (data.pass === req.body.password) {
                 req.session.logged = true
                 req.session.login = req.body.login
@@ -37,8 +37,8 @@ module.exports.log = (req, res) => {
 
 /**
  * Регистрация пользователя на сайте
- * @param req {object} - объект запроса express
- * @param res {object} - объект ответа express
+ * @param {object} req - объект запроса express
+ * @param {object} res - объект ответа express
  * */
 module.exports.reg = (req, res) => {
     //Получаем данные из запроса
