@@ -1,24 +1,24 @@
-/*Проект показывает простую систему работы с пользователями в node js*/
-/*Главный файл*/
 
-//Получаем модули
+// Отслеживаем url адреса
+
+// Получаем модули
 let express = require('express')
 let express_session = require('express-session')
 let parser = require('body-parser')
 let operations = require('./my_modules/user_operations')
 
-//Создаём объект парсера post запросов
+// Создаём объект парсер post запросов
 let urlEncodedParser = parser.urlencoded({extended: false})
 
-//Создаём базовый объект
+// Создаём базовый объект
 let app = express()
 
-//Устанавливаем настройки
+// Устанавливаем настройки
 app.use(express_session({secret: 'super_secret_key'}))
 app.use('/public', express.static('public'))
 app.set('view engine', 'ejs')
 
-/*Отслеживаем url адреса*/
+// Отслеживаем url адреса
 
 app.get('/', ((req, res) => {
     if (req.session.logged) {
@@ -60,7 +60,7 @@ app.get('/logout', (req, res) => {
     res.render('msg', {msg: 'You have logged out successfully'})
 })
 
-//Запускаем сервер
+// Запускаем сервер
 app.listen(3000, () => {
     console.log('server started successfully')
 })
